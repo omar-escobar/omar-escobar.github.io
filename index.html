@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Omar Escobar — mechanical engineering portfolio. Design, fabrication and research projects.">
+<title>Omar Escobar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#1A1A1A;
+    --ink-2:#555555;
+    --ink-3:#909090;
+    --rule:#E6E6E6;
+    --tile:#F7F7F7;
+    --link:#1668CC;
+    --accent:#B0342B;
+
+    --display:"Jost","Futura","Century Gothic",sans-serif;
+    --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-size:17px; line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px;}
+  a{color:var(--link);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible{outline:2px solid var(--link);outline-offset:3px;}
+
+  header{padding:56px 0 44px;}
+  .bar{display:flex;align-items:baseline;justify-content:space-between;gap:34px;flex-wrap:wrap;}
+  .name{
+    font-family:var(--display);font-weight:200;
+    font-size:clamp(28px,5vw,54px);letter-spacing:.2em;
+    margin:0;line-height:1;text-transform:uppercase;white-space:nowrap;
+  }
+  nav{display:flex;gap:26px;}
+  nav a{
+    font-family:var(--display);font-weight:400;font-size:12.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+  }
+
+  .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;padding:0 0 60px;}
+  .intro p{margin:0 0 20px;max-width:44ch;}
+  .intro p:last-of-type{margin-bottom:0;}
+  .lab{
+    font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink);margin:0 0 18px;
+  }
+  .now{list-style:none;margin:0;padding:0;}
+  .now li{margin:0 0 11px;color:var(--ink-3);}
+  .now li b{font-weight:400;color:var(--ink-2);}
+  .reach{margin-top:24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:16px;}
+  .ico{display:flex;gap:9px;align-items:center;}
+  .ico a{display:inline-flex;opacity:1;transition:opacity .15s;}
+  .ico a:hover{opacity:.78;}
+  .ico svg{width:23px;height:23px;display:block;}
+  .todo{font-family:var(--mono);font-size:11px;color:var(--accent);}
+
+  .sec{border-top:1px solid var(--rule);padding:44px 0 0;}
+  .hint{font-size:15.5px;color:var(--ink-3);margin:0 0 28px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:28px;align-items:start;}
+  .tile{border:none;background:none;padding:0;margin:0;text-align:left;cursor:pointer;font:inherit;color:inherit;display:block;width:100%;}
+  .tile .fig{
+    background:var(--tile);border:1px solid var(--rule);
+    height:172px;display:flex;align-items:center;justify-content:center;
+    padding:14px;overflow:hidden;transition:border-color .18s;
+  }
+  .tile .fig.photo{padding:0;}
+  .tile .fig svg{width:100%;height:auto;display:block;color:var(--ink);}
+  .tile .fig img{width:100%;height:100%;object-fit:cover;display:block;}
+  .tile:hover .fig,.tile:focus-visible .fig{border-color:var(--ink);}
+  .tile h3{font-family:var(--display);font-weight:400;font-size:15.5px;margin:14px 0 3px;line-height:1.32;min-height:2.7em;}
+  .tile .meta{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.03em;}
+
+  .det{border-top:1px solid var(--rule);padding:44px 0 38px;scroll-margin-top:16px;}
+  .det h2{font-family:var(--display);font-weight:300;font-size:clamp(22px,2.7vw,30px);letter-spacing:.03em;margin:0 0 6px;line-height:1.22;}
+  .det .org{color:var(--ink-2);font-size:16px;margin:0 0 2px;}
+  .det .when{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em;margin:0 0 26px;}
+
+  figure{margin:0 0 26px;}
+  figure svg{display:block;width:100%;height:auto;color:var(--ink);}
+  figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);}
+  figcaption{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:1.7;margin-top:10px;}
+  .duo{display:grid;grid-template-columns:2.4fr 1fr;gap:16px;align-items:start;}
+
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:36px;}
+  .cols h4{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 11px;}
+  .cols ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:10px;}
+  .cols li{font-size:15.5px;line-height:1.58;color:var(--ink-2);}
+  .cols li b{color:var(--ink);font-weight:600;}
+  .doi{margin-top:22px;font-family:var(--mono);font-size:13px;}
+
+  footer{border-top:1px solid var(--rule);margin-top:36px;padding:36px 0 72px;}
+  footer p{margin:0 0 8px;color:var(--ink-2);}
+  .fine{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:1.8;margin-top:22px;max-width:88ch;}
+
+  @media (max-width:860px){
+    .wrap{padding:0 26px;}
+    .intro{grid-template-columns:1fr;gap:38px;}
+    .name{white-space:normal;letter-spacing:.13em;}
+    .duo{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+  .fig.held{flex-direction:column;gap:6px;background:var(--tile);}
+  .held-l{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);}
+  .held-s{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);}
+  .withheld{border-left:2px solid var(--accent);padding:2px 0 2px 16px;margin:0 0 28px;max-width:70ch;}
+  .w-l{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink);margin:0 0 7px;}
+  .w-b{font-size:15.5px;color:var(--ink-2);margin:0;line-height:1.62;}
+  .tag{
+    display:inline-block;background:var(--ink);color:#fff;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+    padding:4px 9px;margin:0 0 12px;
+  }
+  .det .tag{margin-bottom:14px;}
+  .ph{border:1px dashed var(--ink-3);padding:20px 22px;max-width:46ch;}
+  .ph-l{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;}
+  .ph-b{font-size:15.5px;color:var(--ink-2);margin:0;line-height:1.6;}
+  /* ---- project images: one sheet (2097x750), cropped by CSS ---- */
+  .shot{
+    background-repeat:no-repeat;
+    background-color:#fff;
+    border:1px solid var(--rule);
+    width:100%;
+  }
+  .gal{display:grid;gap:14px;margin:0 0 26px;}
+  .gal-4{grid-template-columns:repeat(4,1fr);}
+  .gal-3{grid-template-columns:1.25fr 1fr 1fr;}
+  @media (max-width:860px){
+    .gal-4{grid-template-columns:repeat(2,1fr);}
+    .gal-3{grid-template-columns:1fr;}
+  }
+  .tile .fig.shotbox{padding:0;border:1px solid var(--rule);}
+  .tile .fig.shotbox .shot{height:100%;border:none;}
+  /* each crop: --sx --sy --sw --sh in source px; sheet is 2097x750 */
+  .shot{
+    aspect-ratio: var(--sw) / var(--sh);
+    background-size: calc(2097 / var(--sw) * 100%) auto;
+    background-position: calc(var(--sx) / (2097 - var(--sw)) * 100%) calc(var(--sy) / (750 - var(--sh)) * 100%);
+  }
+  .c1{--sx:8;   --sy:8;   --sw:455; --sh:400;}
+  .c2{--sx:484; --sy:8;   --sw:455; --sh:400;}
+  .c3{--sx:1060;--sy:8;   --sw:455; --sh:400;}
+  .c4{--sx:1566;--sy:8;   --sw:523; --sh:400;}
+  .c5{--sx:8;   --sy:428; --sw:722; --sh:314;}
+  .c6{--sx:764; --sy:428; --sw:568; --sh:314;}
+  .c7{--sx:1414;--sy:428; --sw:675; --sh:314;}
+  .grid{grid-template-columns:repeat(2,1fr)!important;}
+  .tile .fig.shotbox{height:auto;}
+  @media (max-width:700px){.grid{grid-template-columns:1fr!important;}}
+  .shot{background-image:url("img/projects-sheet.png");}
+  .grid{grid-template-columns:repeat(3,1fr)!important;}
+  @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)!important;}}
+  @media (max-width:700px){.grid{grid-template-columns:1fr!important;}}
+  .tile .fig.photo3{height:auto;aspect-ratio:3/2;overflow:hidden;padding:0;}
+  .tile .fig.photo3 img{width:100%;height:100%;object-fit:cover;display:block;}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="bar">
+    <h1 class="name">Omar Escobar</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro" id="about">
+    <div>
+      <p>I'm Omar Escobar, a mechanical engineering student working on structures for high-speed and
+        contested environments.</p>
+      <p>I'm currently developing counter-uncrewed-system swarm defeat for
+        <a href="https://www.socom.mil" target="_blank" rel="noopener">SOCOM</a> Ignite at
+        <a href="https://www.ll.mit.edu" target="_blank" rel="noopener">MIT Lincoln Laboratory</a>.</p>
+      <p>Previously, I did engineering work at
+        <a href="https://www.navair.navy.mil/nawcwd/" target="_blank" rel="noopener">NAWCWD China Lake</a>,
+        worked on a UUV launch and recovery project at MIT Lincoln Laboratory, machined hypersonic test
+        hardware for <a href="https://www.utsa.edu" target="_blank" rel="noopener">UTSA</a>'s Mach 7 wind
+        tunnel, and did research at the University of Florida with the
+        <a href="https://www.nsf.gov" target="_blank" rel="noopener">NSF</a>.</p>
+      <p>BS in Mechanical Engineering @ UTSA; contracted Army ROTC cadet commissioning December 2027.</p>
+      <div class="reach">
+        <a href="mailto:omar.escobar@my.utsa.edu">omar.escobar@my.utsa.edu</a>
+        <span style="color:var(--ink-3)">&middot;</span>
+        <span class="ico">
+          <a href="https://www.linkedin.com/in/omar-escobar-013248280" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.5H4.6V19h2.5zM5.85 8.4a1.45 1.45 0 1 1 0-2.9 1.45 1.45 0 0 1 0 2.9zM19.4 19h-2.5v-4.63c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44V19H11.1V9.5h2.4v1.3h.03c.33-.63 1.15-1.3 2.36-1.3 2.52 0 2.99 1.66 2.99 3.82z"/></svg></a>
+          <a href="#" aria-label="X" title="X — not set"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#000"/><path fill="#fff" d="M17.18 5h2.3l-5.02 5.74L20.5 19h-4.62l-3.62-4.73L8.06 19H5.75l5.37-6.14L5.2 5h4.74l3.27 4.33zM16.37 17.62h1.27L9.28 6.3H7.92z"/></svg></a>
+          <a href="#" aria-label="Instagram" title="Instagram — not set"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><defs><radialGradient id="igg" cx="28%" cy="105%" r="145%"><stop offset="0%" stop-color="#FDF497"/><stop offset="12%" stop-color="#FDF497"/><stop offset="38%" stop-color="#FD5949"/><stop offset="60%" stop-color="#D6249F"/><stop offset="95%" stop-color="#285AEB"/></radialGradient></defs><rect width="24" height="24" rx="5" fill="url(#igg)"/><rect x="5.9" y="5.9" width="12.2" height="12.2" rx="3.7" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="3.05" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="15.75" cy="8.3" r="1" fill="#fff"/></svg></a>
+        </span>
+        <span class="todo">[X and Instagram not set]</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="lab">Currently</p>
+      <ul class="now">
+        <li>building <b>counter-uncrewed-system swarm defeat</b> at <a href="https://www.ll.mit.edu" target="_blank" rel="noopener">mit lincoln laboratory</a></li>
+        <li>serving as <b>S6 officer in charge</b> for utsa army rotc</li>
+        <li>studying <b>mechanical engineering</b> at <a href="https://www.utsa.edu" target="_blank" rel="noopener">utsa</a></li>
+        <li>holding an <b>active DoD secret clearance</b></li>
+        <li>graduating <b>december 2027</b>, available summer 2027</li>
+        <li>located in <b>san antonio, tx</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <p class="hint">Click a project to see more.</p>
+    <div class="grid">
+
+      <button class="tile" onclick="document.getElementById('g1').scrollIntoView({behavior:'smooth'})">
+        <div class="fig photo3"><img alt="The gimbal mounted on a drone" src="img/tile-gimbal.png"></div>
+        <h3>3-Axis Drone Camera Gimbal</h3>
+        <p class="meta">UTSA Unmanned Systems Lab</p>
+      </button>
+
+      <button class="tile" onclick="document.getElementById('g2').scrollIntoView({behavior:'smooth'})">
+        <div class="fig photo3"><img alt="The finished Monster Mash rocket" src="img/tile-rocket.png"></div>
+        <h3>Monster Mash Rocket</h3>
+        <p class="meta">Aeronautics &amp; Rocket Club &middot; 1st place</p>
+      </button>
+
+
+      <button class="tile" onclick="document.getElementById('g3').scrollIntoView({behavior:'smooth'})">
+        <div class="fig photo3"><img alt="University of Florida boundary layer wind tunnel with the Terraformer roughness grid" src="img/tile-nsf.png"></div>
+        <h3>Terrain Roughness &amp; Peak Turbulence</h3>
+        <p class="meta">University of Florida &middot; NSF NHERI &middot; published</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ G1 ============ -->
+  <section class="det" id="g1">
+    <span class="tag">Research lab</span>
+    <h2>3-Axis Drone Camera Gimbal</h2>
+    <p class="org">UTSA Unmanned Systems Lab</p>
+    <div class="gal gal-4"><div class="shot c1"></div><div class="shot c2"></div><div class="shot c3"></div><div class="shot c4"></div></div>
+    <div class="cols">
+      <div><h4>What</h4><ul>
+        <li>Design and fabricate the shell of a <b>self-stabilizing drone camera gimbal</b> with <b>3-axis rotation</b>.</li>
+        <li>Create a product <b>designed for efficient manufacturability and assembly</b>.</li>
+        <li>House all necessary circuit boards, modules and wiring.</li>
+      </ul></div>
+      <div><h4>How</h4><ul>
+        <li><b>SolidWorks</b> for design, <b>3D printing</b> for rapid prototyping.</li>
+        <li><b>Brushless DC motors</b> for arm control.</li>
+        <li>Weekly team design meetings to work through changes and improvements.</li>
+      </ul></div>
+      <div><h4>Results</h4><ul>
+        <li>After multiple prototypes, a <b>final prototype implemented in drones</b> showing real-world functionality.</li>
+        <li>Fully <b>self-stabilizing</b>, with full <b>3 degrees of freedom</b> movement.</li>
+        <li>Carries a <b>4K camera and laser pointer</b>.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- ============ G2 ============ -->
+  <section class="det" id="g2">
+    <span class="tag">Club project</span>
+    <h2>Monster Mash Rocket</h2>
+    <p class="org">Aeronautics &amp; Rocket Club</p>
+    <div class="gal gal-3"><div class="shot c5"></div><div class="shot c6"></div><div class="shot c7"></div></div>
+    <div class="cols">
+      <div><h4>What</h4><ul>
+        <li>Design and fabricate a rocket reaching an <b>apogee of approximately 1,000 ft</b>.</li>
+        <li>Design a <b>parachute recovery system</b> to recover the rocket with <b>minimal damage</b>.</li>
+      </ul></div>
+      <div><h4>How</h4><ul>
+        <li>Designed in <b>SolidWorks</b>, tested through flight simulation in <b>OpenRocket</b>.</li>
+        <li>Produced plywood rocket parts on a <b>wood laser cutter</b>.</li>
+        <li>Joined parts with two-part epoxy and nails.</li>
+      </ul></div>
+      <div><h4>Results</h4><ul>
+        <li>Launched successfully to <b>1,054 ft</b> &mdash; within 6% of the target apogee.</li>
+        <li>Max velocity <b>110 m/s</b>; max acceleration <b>14.5 G</b>.</li>
+        <li><b>Parachute deployed successfully</b>; recovered with minimal damage.</li>
+      </ul></div>
+    </div>
+  </section>
+
+
+  <!-- ============ G3 ============ -->
+  <section class="det" id="g3">
+    <span class="tag">Research &middot; published</span>
+    <h2>The Influence of Terrain Roughness on Peak Values in Turbulence</h2>
+    <p class="org">University of Florida Boundary Layer Wind Tunnel &mdash; National Science Foundation, NHERI Research Experience for Undergraduates</p>
+    <figure>
+      <img alt="The UF boundary layer wind tunnel: (a) homogeneous benchmark terrain, (b) machine-learning-driven heterogeneous terrain" src="img/nsf-tunnel.png">
+      <figcaption>Fig. 5 &mdash; the same tunnel under (a) the homogeneous benchmark and (b) a
+        machine-learning-driven heterogeneous configuration. From the published dataset.</figcaption>
+    </figure>
+    <div class="cols">
+      <div><h4>What</h4><ul>
+        <li>Assess how <b>randomized terrain roughness</b> influences peak values and turbulence intensity in boundary layer flows.</li>
+        <li>Test whether <b>first- and second-order statistics alone</b> characterize peak wind events.</li>
+      </ul></div>
+      <div><h4>How</h4><ul>
+        <li>Ran the UF tunnel (6 &times; 3 &times; 38 m) with its <b>Terraformer</b> roughness grid and <b>three Cobra probes</b> at 45 mph.</li>
+        <li>Compared a homogeneous benchmark against <b>machine-learning-driven</b> sine-wave terrain across <b>25 trials</b>.</li>
+        <li>Processed the profiles in <b>MATLAB</b>.</li>
+      </ul></div>
+      <div><h4>Results</h4><ul>
+        <li><b>Turbulence intensity is more sensitive to terrain than peak values</b> &mdash; peak profiles matched the benchmark under strict limits while TI did not.</li>
+        <li>Dataset <b>published to DesignSafe</b> under a permanent DOI.</li>
+      </ul></div>
+    </div>
+    <p class="doi">&rarr; <a href="https://doi.org/10.17603/ds2-7xfv-9g89" target="_blank" rel="noopener noreferrer">doi.org/10.17603/ds2-7xfv-9g89</a></p>
+  </section>
+</main>
+
+<footer class="wrap" id="contact">
+  <p><a href="mailto:omar.escobar@my.utsa.edu">omar.escobar@my.utsa.edu</a></p>
+  <p>San Antonio, TX &middot; available summer 2027</p>
+  <p class="fine">Projects shown here are academic, club and personal work. Professional engineering
+    work carried out under government sponsorship is not shown, as it is not publicly releasable.</p>
+</footer>
+</body>
+</html>
