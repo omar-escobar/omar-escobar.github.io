@@ -88,6 +88,9 @@
   figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);}
   figcaption{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:1.7;margin-top:10px;}
   .duo{display:grid;grid-template-columns:2.4fr 1fr;gap:16px;align-items:start;}
+  .project-summary{color:var(--ink-2);font-size:15.5px;line-height:1.62;max-width:75ch;margin:16px 0 26px;}
+  .memdrl-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:16px;align-items:start;}
+  .memdrl-gallery img{height:230px;object-fit:contain;background:var(--tile);}
 
   .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:36px;}
   .cols h4{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 11px;}
@@ -240,6 +243,12 @@
         <h3>Terrain Roughness &amp; Peak Turbulence</h3>
         <p class="meta">University of Florida &middot; NSF NHERI &middot; published</p>
       </button>
+
+      <button class="tile" onclick="document.getElementById('g4').scrollIntoView({behavior:'smooth'})">
+        <div class="fig photo3"><img alt="Inkjet-printed silver nanoparticle pattern on Kapton" src="memdrl-sample.png"></div>
+        <h3>Inkjet-Printed Silver on Kapton</h3>
+        <p class="meta">UTSA &middot; MeMDRL</p>
+      </button>
     </div>
   </section>
 
@@ -319,6 +328,44 @@
       </ul></div>
     </div>
     <p class="doi">&rarr; <a href="https://doi.org/10.17603/ds2-7xfv-9g89" target="_blank" rel="noopener noreferrer">doi.org/10.17603/ds2-7xfv-9g89</a></p>
+  </section>
+
+  <!-- ============ G4 ============ -->
+  <section class="det" id="g4">
+    <span class="tag">Class project</span>
+    <h2>Inkjet-Printed Silver on Kapton</h2>
+    <p class="org">UTSA Multifunctional Electronic Materials and Devices Research Laboratory (MeMDRL)</p>
+    <p class="project-summary">For a Computer Integrated Manufacturing class project, the team produced a silver nanoparticle pattern on Kapton and presented the process as an example of current technology and future directions in additive manufacturing.</p>
+    <div class="memdrl-gallery">
+      <figure>
+        <img alt="CeraDrop printer in the UTSA laboratory" src="memdrl-printer.png">
+        <figcaption>CeraDrop printer used for the inkjet process.</figcaption>
+      </figure>
+      <figure>
+        <img alt="Finished silver nanoparticle pattern printed on Kapton" src="memdrl-sample.png">
+        <figcaption>Inkjet-printed silver nanoparticle pattern on Kapton.</figcaption>
+      </figure>
+      <figure>
+        <img alt="Inspection view of the printed pattern" src="memdrl-inspection.png">
+        <figcaption>Printed pattern viewed during final visual inspection.</figcaption>
+      </figure>
+    </div>
+    <div class="cols">
+      <div><h4>What</h4><ul>
+        <li>Deposit <b>silver nanoparticle ink</b> on a <b>Kapton substrate</b> using inkjet printing.</li>
+        <li>Explore how printed materials and processes may support future electronic components.</li>
+      </ul></div>
+      <div><h4>How</h4><ul>
+        <li>Prepared the Kapton with an <b>acetone wash, ethanol wipe, and plasma treatment</b> to clean the surface and help the ink adhere.</li>
+        <li>Held the substrate with a <b>glass holder</b> and deposited the ink with the <b>CeraDrop printer's inkjet process</b>; Aerosol Jet was not used.</li>
+        <li>Cured the printed ink and visually inspected the resulting pattern.</li>
+      </ul></div>
+      <div><h4>Results</h4><ul>
+        <li>Observed a <b>printed silver nanoparticle pattern</b> on Kapton and passed the sample around the class.</li>
+        <li>Presented the process to inform classmates about current technology and future possibilities in additive manufacturing.</li>
+        <li><b>Potential applications</b> include sensors, actuators, and engineering or biomedical research.</li>
+      </ul></div>
+    </div>
   </section>
 </main>
 
